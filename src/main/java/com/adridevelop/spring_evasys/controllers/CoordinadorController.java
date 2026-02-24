@@ -21,6 +21,7 @@ import com.adridevelop.spring_evasys.models.Service.CoordinadorServiceImpl;
 import com.adridevelop.spring_evasys.models.Service.DepartamentoCentroService;
 import com.adridevelop.spring_evasys.models.dto.CoordinadorCentroDTO;
 import com.adridevelop.spring_evasys.models.dto.CoordinadorCentroUpdateDTO;
+import com.adridevelop.spring_evasys.models.dto.CoordinadorPasswordDTO;
 import com.adridevelop.spring_evasys.models.entities.Coordinador;
 
 @RestController
@@ -71,6 +72,13 @@ public class CoordinadorController {
 	public ResponseEntity<?> save(@RequestBody CoordinadorCentroDTO coordinadorDepartamentoDto){
 		Coordinador coordinador = coordinadorDepartamentoService.addNewCoordinador(coordinadorDepartamentoDto.getIdCentro(), coordinadorDepartamentoDto.getIdDepartamento(), coordinadorDepartamentoDto.getCoordinador());
 		return ResponseEntity.status(HttpStatus.OK).body(coordinadorService.save(coordinador));
+	}
+	
+	// Método que actualiza el coordinador pasado en la base de datos
+	@PutMapping("/coordinador-password")
+	public ResponseEntity<?> update(@RequestBody CoordinadorPasswordDTO coordinadorPasswordDto){
+	     Coordinador coordinador = coordinadorService.cambiarContraseña(coordinadorPasswordDto.getIdCoordinador(), coordinadorPasswordDto.getPassword());
+	     return ResponseEntity.status(HttpStatus.OK).body(coordinadorService.save(coordinador));
 	}
 	
 	// Método que actualiza el coordinador pasado en la base de datos
