@@ -51,6 +51,7 @@ public class SecurityConfig {
 			auth.requestMatchers(HttpMethod.GET, "/api/coordinador/**").hasAnyRole("ADMIN", "SUPER_ADMIN");
 			auth.requestMatchers(HttpMethod.POST, "/api/coordinador").hasAnyRole("ADMIN", "SUPER_ADMIN");
 			auth.requestMatchers(HttpMethod.PUT, "/api/coordinador").hasAnyRole("ADMIN", "SUPER_ADMIN");
+			auth.requestMatchers(HttpMethod.PUT, "/api/coordinador-password").hasAnyRole("ADMIN", "SUPER_ADMIN");
 			
 			auth.requestMatchers(HttpMethod.GET, "/api/departamentos-activos").hasAnyRole("ADMIN");
 			auth.requestMatchers(HttpMethod.GET, "/api/departamentos").hasAnyRole("ADMIN", "SUPER_ADMIN");
