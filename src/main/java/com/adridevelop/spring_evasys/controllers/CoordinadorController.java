@@ -77,7 +77,7 @@ public class CoordinadorController {
 	// Método que actualiza el coordinador pasado en la base de datos
 	@PutMapping("/coordinador-password")
 	public ResponseEntity<?> update(@RequestBody CoordinadorPasswordDTO coordinadorPasswordDto){
-	     Coordinador coordinador = coordinadorService.cambiarContraseña(coordinadorPasswordDto.getIdCoordinador(), coordinadorPasswordDto.getPassword());
+	     Coordinador coordinador = coordinadorService.cambiarContrasena(coordinadorPasswordDto.getIdCoordinador(), coordinadorPasswordDto.getPassword());
 	     return ResponseEntity.status(HttpStatus.OK).body(coordinadorService.save(coordinador));
 	}
 	

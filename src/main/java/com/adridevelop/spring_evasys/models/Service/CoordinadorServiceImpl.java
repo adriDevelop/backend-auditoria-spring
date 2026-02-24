@@ -45,7 +45,7 @@ public class CoordinadorServiceImpl implements GeneralService<Coordinador>{
 		return coordinadorDao.findById(id).orElseThrow(()-> new RecursoNoEncontradoException("No se ha podido encontrar al coordinador con id " + id));
 	}
 	
-	public Coordinador cambiarContraseña(Long id, String password) {
+	public Coordinador cambiarContrasena(Long id, String password) {
 		Coordinador coordinador = coordinadorDao.findById(id).orElseThrow(()-> new RecursoNoEncontradoException("No se ha podido encontrar al coordinador con id " + id));
 		coordinador.setPassword(passwordEncoder.encode(password));
 		return coordinador;
