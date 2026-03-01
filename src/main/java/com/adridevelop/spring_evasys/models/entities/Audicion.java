@@ -3,6 +3,7 @@ package com.adridevelop.spring_evasys.models.entities;
 import java.io.Serializable;
 import java.sql.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -69,4 +70,10 @@ public class Audicion{
 	@ManyToOne()
 	@JoinColumn(name="audiciones")
 	private Colectivo colectivo;
+	
+	@OneToOne(mappedBy = "audicion", cascade = CascadeType.ALL)
+	private AudicionAsistenciaEntrantes detallesEntrantes;
+	
+	@OneToOne(mappedBy = "audicion", cascade = CascadeType.ALL)
+	private AudicionInbound detallesInbound;
 }

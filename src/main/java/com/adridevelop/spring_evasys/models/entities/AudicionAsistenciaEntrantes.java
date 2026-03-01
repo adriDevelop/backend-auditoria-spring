@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -95,5 +97,9 @@ public class AudicionAsistenciaEntrantes {
 	
 	@Column
 	private Double satisfaccionCliente;
+	
+	@OneToOne
+	@JoinColumn(name = "id_audicion", referencedColumnName = "id_audicion")
+	private Audicion audicion;
 	
 }
